@@ -17,8 +17,8 @@ public class Movie {
         return movieType.getPriceCode();
     }
 
-    public void setPriceCode(int arg) {
-        switch (arg) {
+    public void setPriceCode(int priceCode) {
+        switch (priceCode) {
             case REGULAR:
                 movieType = new RegularMovieType();
                 break;
@@ -29,7 +29,7 @@ public class Movie {
                 movieType = new ChildrenMovieType();
                 break;
             default:
-                throw new IllegalArgumentException("Unknown movie type");
+                movieType = new UnknownMovieType(priceCode);
         }
     }
 
