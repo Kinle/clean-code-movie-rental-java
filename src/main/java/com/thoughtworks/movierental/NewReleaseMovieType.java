@@ -5,4 +5,9 @@ public class NewReleaseMovieType extends MovieType{
     int getPriceCode() {
         return Movie.NEW_RELEASE;
     }
+
+    @Override
+    double amountFor(int daysRented) {
+        return daysRented * 3;
+    }
 }
