@@ -6,19 +6,31 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
 
     private String title;
-    private int priceCode;
+    private MovieType movieType;
 
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        this.setPriceCode(priceCode);
     }
 
     public int getPriceCode() {
-        return priceCode;
+        return movieType.getPriceCode();
     }
 
     public void setPriceCode(int arg) {
-        priceCode = arg;
+        switch (arg) {
+            case REGULAR:
+                movieType = new RegularMovieType();
+                break;
+            case NEW_RELEASE:
+                movieType = new NewReleaseMovieType();
+                break;
+            case CHILDRENS:
+                movieType = new ChildrenMovieType();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown movie type");
+        }
     }
 
     public String getTitle() {
@@ -26,11 +38,11 @@ public class Movie {
     }
 
     public boolean isNewRelease() {
-        return priceCode == NEW_RELEASE;
+        return getPriceCode() == NEW_RELEASE;
     }
 
     public double amountFor(int daysRented) {
-        switch (priceCode) {
+        switch (getPriceCode()) {
             case REGULAR:
                 return regularMovieAmountFor(daysRented);
             case NEW_RELEASE:
