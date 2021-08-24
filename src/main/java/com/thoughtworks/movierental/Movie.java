@@ -30,27 +30,38 @@ public class Movie {
     }
 
     public double amountFor(int daysRented) {
-        double amount = 0;
         switch (priceCode) {
             case REGULAR:
-                amount += 2;
-                if (daysRented > 2)
-                    amount += (daysRented - 2) * 1.5;
-                break;
+                return regularMovieAmountFor(daysRented);
             case NEW_RELEASE:
-                amount += daysRented * 3;
-                break;
+                return newReleaseAmountFor(daysRented);
             case CHILDRENS:
-                amount += 1.5;
-                if (daysRented > 3)
-                    amount += (daysRented - 3) * 1.5;
-                break;
+                return childrenMovieAmountFor(daysRented);
+            default:
+                return 0;
         }
+    }
+
+    private double regularMovieAmountFor(int daysRented) {
+        double amount = 2;
+        if (daysRented > 2)
+            amount += (daysRented - 2) * 1.5;
+        return amount;
+    }
+
+    private double newReleaseAmountFor(int daysRented) {
+        return daysRented * 3;
+    }
+
+    private double childrenMovieAmountFor(int daysRented) {
+        double amount = 1.5;
+        if (daysRented > 3)
+            amount += (daysRented - 3) * 1.5;
         return amount;
     }
 
     public int frequentRenterPoints(int daysRented) {
-        if (isBonusApplicable(daysRented)){
+        if (isBonusApplicable(daysRented)) {
             return 2;
         }
         return 1;
