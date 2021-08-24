@@ -10,9 +10,9 @@ class CustomerTest {
     public void shouldGenerateStatement() {
         Customer customer = new Customer("John Doe");
 
-        customer.addRental(new Rental(new Movie("Jumanji", Movie.CHILDRENS), 2));
-        customer.addRental(new Rental(new Movie("3 idiots", Movie.REGULAR), 4));
-        customer.addRental(new Rental(new Movie("Avengers", Movie.NEW_RELEASE), 15));
+        customer.addRental(new Rental(new Movie("Jumanji", new ChildrenMovieType()), 2));
+        customer.addRental(new Rental(new Movie("3 idiots", new RegularMovieType()), 4));
+        customer.addRental(new Rental(new Movie("Avengers", new NewReleaseMovieType()), 15));
 
         String statement = customer.statement();
 
@@ -28,9 +28,9 @@ class CustomerTest {
     public void shouldGenerateHtmlStatement() {
         Customer customer = new Customer("John Doe");
 
-        customer.addRental(new Rental(new Movie("Jumanji", Movie.CHILDRENS), 2));
-        customer.addRental(new Rental(new Movie("3 idiots", Movie.REGULAR), 4));
-        customer.addRental(new Rental(new Movie("Avengers", Movie.NEW_RELEASE), 15));
+        customer.addRental(new Rental(new Movie("Jumanji", new ChildrenMovieType()), 2));
+        customer.addRental(new Rental(new Movie("3 idiots", new RegularMovieType()), 4));
+        customer.addRental(new Rental(new Movie("Avengers", new NewReleaseMovieType()), 15));
 
         String statement = customer.htmlStatement();
 

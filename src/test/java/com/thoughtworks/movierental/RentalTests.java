@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RentalTests {
     @Test
     public void amountForRegularMovie() {
-        Rental rental = new Rental(new Movie("Regular", Movie.REGULAR), 4);
+        Rental rental = new Rental(new Movie("Regular", new RegularMovieType()), 4);
 
         double amount = rental.amount();
 
@@ -16,7 +16,7 @@ public class RentalTests {
 
     @Test
     public void amountForNewReleaseMovie() {
-        Rental rental = new Rental(new Movie("New Release", Movie.NEW_RELEASE), 4);
+        Rental rental = new Rental(new Movie("New Release", new NewReleaseMovieType()), 4);
 
         double amount = rental.amount();
 
@@ -25,7 +25,7 @@ public class RentalTests {
 
     @Test
     public void amountForChildrenMovie() {
-        Rental rental = new Rental(new Movie("Children", Movie.CHILDRENS), 4);
+        Rental rental = new Rental(new Movie("Children", new ChildrenMovieType()), 4);
 
         double amount = rental.amount();
 
@@ -34,7 +34,7 @@ public class RentalTests {
 
     @Test
     public void amountForUnknownMovie() {
-        Rental rental = new Rental(new Movie("Unknown", 4), 4);
+        Rental rental = new Rental(new Movie("Unknown", new UnknownMovieType(4)), 4);
 
         double amount = rental.amount();
 

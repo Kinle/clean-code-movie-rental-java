@@ -8,9 +8,15 @@ public class Movie {
     private String title;
     private MovieType movieType;
 
+    @Deprecated
     public Movie(String title, int priceCode) {
         this.title = title;
         this.setPriceCode(priceCode);
+    }
+
+    public Movie(String title, MovieType movieType){
+        this.title = title;
+        this.movieType = movieType;
     }
 
     public int getPriceCode() {
