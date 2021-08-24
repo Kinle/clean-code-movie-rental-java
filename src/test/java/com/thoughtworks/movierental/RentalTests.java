@@ -33,6 +33,15 @@ public class RentalTests {
     }
 
     @Test
+    public void amountForBlurayMovie() {
+        Rental rental = new Rental(new Movie("Bluray", new BlurayMovieType()), 4);
+
+        double amount = rental.amount();
+
+        assertEquals(16.0, amount, 0.0);
+    }
+
+    @Test
     public void amountForUnknownMovie() {
         Rental rental = new Rental(new Movie("Unknown", new UnknownMovieType(4)), 4);
 
