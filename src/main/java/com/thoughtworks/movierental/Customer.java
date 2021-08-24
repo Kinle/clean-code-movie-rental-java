@@ -35,19 +35,11 @@ public class Customer {
     }
 
     private int totalFrequentRenterPoints() {
-        int frequentRenterPoints = 0;
-        for (Rental each : rentals) {
-            frequentRenterPoints += each.frequentRenterPoints();
-        }
-        return frequentRenterPoints;
+        return rentals.stream().mapToInt(Rental::frequentRenterPoints).sum();
     }
 
     private double totalAmount() {
-        double totalAmount = 0;
-        for (Rental each : rentals) {
-            totalAmount += each.amount();
-        }
-        return totalAmount;
+        return rentals.stream().mapToDouble(Rental::amount).sum();
     }
 
 }
