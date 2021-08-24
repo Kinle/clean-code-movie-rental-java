@@ -48,4 +48,17 @@ public class Movie {
         }
         return amount;
     }
+
+    public int frequentRenterPoints(int daysRented) {
+        if (isBonusApplicable(daysRented)){
+            return 2;
+        }
+        return 1;
+    }
+
+    private boolean isBonusApplicable(int daysRented) {
+        return isNewRelease()
+                &&
+                daysRented > 1;
+    }
 }

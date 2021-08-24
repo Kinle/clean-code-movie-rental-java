@@ -22,16 +22,7 @@ public class Rental {
     }
 
     public int frequentRenterPoints() {
-        if (isBonusApplicable()){
-            return 2;
-        }
-        return 1;
-    }
-
-    private boolean isBonusApplicable() {
-        return movie.isNewRelease()
-                &&
-                getDaysRented() > 1;
+        return movie.frequentRenterPoints(daysRented);
     }
 
 }
