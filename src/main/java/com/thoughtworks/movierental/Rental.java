@@ -45,12 +45,9 @@ public class Rental {
     }
 
     private boolean isBonusApplicable() {
-        return isNewRelease()
+        return movie.isNewRelease()
                 &&
                 getDaysRented() > 1;
     }
 
-    private boolean isNewRelease() {
-        return movie.getPriceCode() == Movie.NEW_RELEASE;
-    }
 }
