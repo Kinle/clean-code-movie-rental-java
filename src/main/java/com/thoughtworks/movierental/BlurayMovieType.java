@@ -13,6 +13,6 @@ public class BlurayMovieType extends MovieType{
 
     @Override
     int frequentRenterPoints(int daysRented) {
-        return 1;
+        return 3;
     }
 }

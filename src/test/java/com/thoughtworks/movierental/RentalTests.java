@@ -78,6 +78,15 @@ public class RentalTests {
     }
 
     @Test
+    public void frequentRenterPointsForBlurayMovie() {
+        Rental rental = new Rental(new Movie("Bluray", new BlurayMovieType()), 4);
+
+        int frequentRenterPoints = rental.frequentRenterPoints();
+
+        assertEquals(3, frequentRenterPoints);
+    }
+
+    @Test
     public void frequentRenterPointsForUnknownMovie() {
         Rental rental = new Rental(new Movie("Unknown", new UnknownMovieType(4)), 4);
 
