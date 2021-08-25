@@ -17,4 +17,9 @@ public class UnknownMovieType extends MovieType{
     double amountFor(int daysRented) {
         return 0;
     }
+
+    @Override
+    int frequentRenterPoints(int daysRented) {
+        return 0;
+    }
 }

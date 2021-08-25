@@ -49,4 +49,40 @@ public class RentalTests {
 
         assertEquals(0.0, amount, 0.0);
     }
+
+    @Test
+    public void frequentRenterPointsForRegularMovie() {
+        Rental rental = new Rental(new Movie("Regular", new RegularMovieType()), 4);
+
+        int frequentRenterPoints = rental.frequentRenterPoints();
+
+        assertEquals(1, frequentRenterPoints);
+    }
+
+    @Test
+    public void frequentRenterPointsForNewReleaseMovie() {
+        Rental rental = new Rental(new Movie("New Release", new NewReleaseMovieType()), 4);
+
+        int frequentRenterPoints = rental.frequentRenterPoints();
+
+        assertEquals(2, frequentRenterPoints);
+    }
+
+    @Test
+    public void frequentRenterPointsForChildrenMovie() {
+        Rental rental = new Rental(new Movie("Children", new ChildrenMovieType()), 4);
+
+        int frequentRenterPoints = rental.frequentRenterPoints();
+
+        assertEquals(1, frequentRenterPoints);
+    }
+
+    @Test
+    public void frequentRenterPointsForUnknownMovie() {
+        Rental rental = new Rental(new Movie("Unknown", new UnknownMovieType(4)), 4);
+
+        int frequentRenterPoints = rental.frequentRenterPoints();
+
+        assertEquals(0, frequentRenterPoints);
+    }
 }

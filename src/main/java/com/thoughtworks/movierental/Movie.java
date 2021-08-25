@@ -44,24 +44,11 @@ public class Movie {
         return title;
     }
 
-    public boolean isNewRelease() {
-        return getPriceCode() == NEW_RELEASE;
-    }
-
     public double amountFor(int daysRented) {
         return movieType.amountFor(daysRented);
     }
 
     public int frequentRenterPoints(int daysRented) {
-        if (isBonusApplicable(daysRented)) {
-            return 2;
-        }
-        return 1;
-    }
-
-    private boolean isBonusApplicable(int daysRented) {
-        return isNewRelease()
-                &&
-                daysRented > 1;
+        return movieType.frequentRenterPoints(daysRented);
     }
 }

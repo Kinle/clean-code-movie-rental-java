@@ -13,4 +13,9 @@ public class RegularMovieType extends MovieType{
             amount += (daysRented - 2) * 1.5;
         return amount;
     }
+
+    @Override
+    int frequentRenterPoints(int daysRented) {
+        return 1;
+    }
 }
